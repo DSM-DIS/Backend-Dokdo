@@ -15,6 +15,7 @@ class DiaryService {
     }
 
     const data = await this.diaryModel.findOne({
+      attributes: ['author', 'page', 'content'],
       where: {
         diary_book_id: diaryBookId,
         page
