@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/DSM-DIS/Backend-Dokdo/issues"
   },
-  "homepage": "https://github.com/DSM-DIS/Backend-Dokdo#readme"
+  "homepage": "https://github.com/DSM-DIS/Backend-Dokdo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
