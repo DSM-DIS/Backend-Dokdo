@@ -1,8 +1,8 @@
-const { Diary } = require('../../../repositories');
-const DiaryService = require('../../../services/diary');
+const { Diary } = require('../../repositories');
+const DiaryService = require('../../services/diary');
 const diaryService = new DiaryService(Diary);
 
-const { BAD_REQUEST } = require('../../../errors');
+const { BAD_REQUEST } = require('../../errors');
 
 const getDiary = async (req, res) => {
   try {
