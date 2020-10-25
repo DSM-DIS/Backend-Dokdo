@@ -1,5 +1,7 @@
 const isRegisteredUser = require('./isRegisteredUser');
+const getLastPage = require('./getLastPage');
 
 module.exports = {
-  isRegisteredUser
+  isRegisteredUser,
+  getLastPage
 };
