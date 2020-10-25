@@ -9,7 +9,7 @@ const getLastPage = async (diaryBookId) => {
     ]
   });
 
-  return page ? page : 0;
+  return page ? page.page : 0;
 };
 
 module.exports = getLastPage;
