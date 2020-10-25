@@ -1,5 +1,5 @@
 const { BAD_REQUEST, NOT_FOUND } = require('../errors');
-const { isRegisteredUser, isCreatedDiaryBook } = require('../utils');
+const { isRegisteredUser } = require('../utils');
 
 class DiaryService {
   constructor(diaryModel) {
@@ -34,9 +34,6 @@ class DiaryService {
     }
     if (typeof diaryBookId !== 'number' || diaryBookId < 1) {
       throw BAD_REQUEST;
-    }
-    if (!await isCreatedDiaryBook(diaryBookId)) {
-      throw NOT_FOUND;
     }
     if (typeof page !== 'number' || page < 1) {
       throw BAD_REQUEST;
