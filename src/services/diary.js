@@ -29,6 +29,8 @@ class DiaryService {
   }
 
   async writingDiary(userId, diaryBookId, page, content) {
+    const MAX_CONTENT_LEN = 240;
+
     if (typeof userId !== 'string' || !await isRegisteredUser(userId)) {
       throw BAD_REQUEST;
     }
@@ -38,7 +40,7 @@ class DiaryService {
     if (typeof page !== 'number' || page < 1) {
       throw BAD_REQUEST;
     }
-    if (typeof content !== 'string' || !content) {
+    if (typeof content !== 'string' || !content || content.length > MAX_CONTENT_LEN) {
       throw BAD_REQUEST;
     }
 
