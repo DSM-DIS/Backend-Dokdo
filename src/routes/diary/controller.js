@@ -3,6 +3,7 @@ const DiaryService = require('../../services/diary');
 const diaryService = new DiaryService(Diary);
 
 const { BAD_REQUEST } = require('../../errors');
+const { getLastPage } = require('../../utils');
 
 const getDiary = async (req, res) => {
   try {
@@ -31,7 +32,7 @@ const writingDiary = async (req, res) => {
     }
     const { userId, content } = req.body;
     const diaryBookId = parseInt(req.body.diaryBookId);
-    const page = parseInt(req.body.page);
+    const page = 1 + await getLastPage(diaryBookId);
     if (isNaN(diaryBookId) || isNaN(page)) {
       throw BAD_REQUEST;
     }
