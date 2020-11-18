@@ -1,16 +1,14 @@
+const { Diary } = require('../repositories');
 const { BAD_REQUEST, NOT_FOUND } = require('../errors');
-const { isRegisteredUser } = require('../utils');
+const { isRegisteredUser, isIntegerArg } = require('../utils');
 
 class DiaryService {
-  constructor(diaryModel) {
-    this.diaryModel = diaryModel;
+  constructor() {
+    this.diaryModel = Diary;
   }
 
   async getDiary(diaryBookId, page) {
-    if (typeof diaryBookId !== 'number' || diaryBookId < 1) {
-      throw BAD_REQUEST;
-    }
-    if (typeof page !== 'number' || page < 1) {
+    if (!isIntegerArg(diaryBookId) || !isIntegerArg(page)) {
       throw BAD_REQUEST;
     }
 
