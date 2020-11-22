@@ -2,13 +2,22 @@ const { DataTypes, Model } = require('sequelize');
 const { sequelize } = require('../../loaders/database');
 
 class Diary extends Model {
-  static async getDiary(diaryBookId, page) {
+  static async readingDiary(diaryBookId, page) {
     return await this.findOne({
       attributes: ['author', 'content', 'page'],
       where: {
         diary_book_id: diaryBookId,
         page
       }
+    });
+  }
+
+  static async writingDiary(diaryBookId, userId, content, page) {
+    await this.create({
+      diary_book_id: diaryBookId,
+      author: userId,
+      content,
+      page
     });
   }
 }
