@@ -1,9 +1,8 @@
-const express = require('express');
+import express from "express";
+import { SERVER_PORT } from "./config";
+import { initApp } from "./loaders";
+
 const app = express();
-
-const { SERVER_PORT } = require('./config');
-const initApp = require('./loaders');
-
 initApp(app);
 
 app.listen(SERVER_PORT, () => {
