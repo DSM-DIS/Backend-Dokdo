@@ -8,18 +8,12 @@ class DiaryService {
     this.diaryModel = Diary;
   }
 
-  async getDiary(diaryBookId, page) {
+  async readingDiary(diaryBookId, page) {
     if (!isIntegerArg(diaryBookId) || !isIntegerArg(page)) {
       throw BAD_REQUEST;
     }
 
-    const data = await this.diaryModel.findOne({
-      attributes: ['author', 'page', 'content'],
-      where: {
-        diary_book_id: diaryBookId,
-        page
-      }
-    });
+    const data = await this.diaryModel.readingDiary(diaryBookId, page);
 
     if (!data) {
       throw NOT_FOUND;
@@ -35,12 +29,7 @@ class DiaryService {
       throw BAD_REQUEST;
     }
 
-    await this.diaryModel.create({
-      diary_book_id: diaryBookId,
-      author: userId,
-      content,
-      page
-    });
+    await this.diaryModel.writingDiary(diaryBookId, userId, content, page);
   }
 }
 
