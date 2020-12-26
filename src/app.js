@@ -1,6 +1,6 @@
 import express from "express";
 import * as config from "./config";
-import { initApp } from "./loaders";
+import initApp from "./loaders";
 
 const app = express();
 initApp(app);
