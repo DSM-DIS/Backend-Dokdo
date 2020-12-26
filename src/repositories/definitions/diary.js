@@ -1,13 +1,12 @@
-const { DataTypes, Model } = require('sequelize');
-const { sequelize } = require('../../loaders/database');
+import { DataTypes, Model } from "sequelize";
+import { sequelize } from "../../loaders/database";
 
 class Diary extends Model {
   static async readingDiary(diaryBookId, page) {
     return await this.findOne({
-      attributes: ['author', 'content', 'page'],
       where: {
         diary_book_id: diaryBookId,
-        page
+        page: page
       }
     });
   }
@@ -16,8 +15,8 @@ class Diary extends Model {
     await this.create({
       diary_book_id: diaryBookId,
       author: userId,
-      content,
-      page
+      content: content,
+      page: page
     });
   }
 }
@@ -49,4 +48,4 @@ Diary.init({
   tableName: 'diary'
 });
 
-module.exports = Diary;
+export { Diary };
