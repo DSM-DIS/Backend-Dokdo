@@ -2,7 +2,7 @@ const DiaryService = require('../../services/diary');
 const diaryService = new DiaryService();
 
 const { BAD_REQUEST } = require('../../errors');
-const { getLastPage } = require('../../utils');
+const { isIntegerArg, getLastPage } = require('../../utils');
 
 const getDiary = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ const getDiary = async (req, res) => {
     }
     const page = parseInt(req.query.page);
     const diaryBookId = parseInt(req.params.id);
-    if (isNaN(page) || isNaN(diaryBookId)) {
+    if (!isIntegerArg(diaryBookId) || !isIntegerArg(page)) {
       throw BAD_REQUEST;
     }
 
@@ -32,7 +32,7 @@ const writingDiary = async (req, res) => {
     const { userId, content } = req.body;
     const diaryBookId = parseInt(req.body.diaryBookId);
     const page = 1 + await getLastPage(diaryBookId);
-    if (isNaN(diaryBookId) || isNaN(page)) {
+    if (!isIntegerArg(diaryBookId) || !isIntegerArg(page)) {
       throw BAD_REQUEST;
     }
 
