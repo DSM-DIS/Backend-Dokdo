@@ -1,4 +1,4 @@
-const { Diary, User } = require('./definitions');
+import { Diary, User } from "./definitions";
 
 User.hasMany(Diary, {
   foreignKey: 'author',
@@ -14,4 +14,7 @@ Diary.belongsTo(User, {
   onDelete: 'CASCADE'
 });
 
-module.exports = { User, Diary };
+export {
+  User,
+  Diary
+};
