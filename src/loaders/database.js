@@ -2,11 +2,11 @@ import { Sequelize } from "sequelize";
 import * as config from "../config";
 
 export const sequelize = new Sequelize(
-  config.mysql.DB_NAME,
-  config.mysql.DB_USER,
-  config.myslq.DB_PASSWORD,
+  config.mysql.name,
+  config.mysql.username,
+  config.myslq.password,
   {
-    host: DB_HOST,
+    host: config.mysql.host,
     dialect: 'mysql',
     define: {
       freezeTableName: true,
