@@ -1,12 +1,17 @@
-import { config } from "dotenv";
+const { config } = require('dotenv');
+
 config();
 
-export default {
-  port: Number(process.env.SERVER_PORT),
+module.exports = {
+  port: parseInt(process.env.SERVER_PORT),
   mysql: {
     host: process.env.DB_HOST,
-    username: process.env.DB_USERNAME,
+    user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     name: process.env.DB_NAME
+  },
+  stringLen: {
+    author: 12,
+    content: 240
   }
 };
