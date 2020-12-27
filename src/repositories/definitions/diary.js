@@ -1,6 +1,6 @@
 const { DataTypes, Model } = require('sequelize');
 const { stringLen } = require('../../configs');
-const { sequelize } = require('../../loaders');
+const { sequelize } = require('../../loaders/database');
 
 class Diary extends Model {
   static async readingDiary(diaryBookId, page) {
