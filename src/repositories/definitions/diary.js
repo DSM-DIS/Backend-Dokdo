@@ -1,5 +1,6 @@
-import { DataTypes, Model } from "sequelize";
-import { sequelize } from "../../loaders/database";
+const { DataTypes, Model } = require('sequelize');
+const { stringLen } = require('../../configs');
+const { sequelize } = require('../../loaders');
 
 class Diary extends Model {
   static async readingDiary(diaryBookId, page) {
@@ -32,11 +33,11 @@ Diary.init({
     allowNull: false
   },
   author: {
-    type: DataTypes.STRING(12),
+    type: DataTypes.STRING(stringLen.author),
     allowNull: false
   },
   content: {
-    type: DataTypes.STRING(240),
+    type: DataTypes.STRING(stringLen.content),
     allowNull: false
   },
   page: {
@@ -48,4 +49,4 @@ Diary.init({
   tableName: 'diary'
 });
 
-export { Diary };
+module.exports = Diary;
