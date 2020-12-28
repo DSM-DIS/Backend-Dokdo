@@ -1,7 +1,5 @@
+const { stringLen } = require('../config');
 const { Diary } = require('../repositories');
-const { CONTENT_LEN } = require('../config/attribute');
-const { BAD_REQUEST, NOT_FOUND } = require('../errors');
-const { isIntegerArg, isStringArg } = require('../utils');
 
 class DiaryService {
   constructor() {
@@ -9,16 +7,7 @@ class DiaryService {
   }
 
   async readingDiary(diaryBookId, page) {
-    if (!isIntegerArg(diaryBookId) || !isIntegerArg(page)) {
-      throw BAD_REQUEST;
-    }
-
-    const data = await this.diaryModel.readingDiary(diaryBookId, page);
-
-    if (!data) {
-      throw NOT_FOUND;
-    }
-    return data;
+    return await this.diaryModel.readingDiary(diaryBookId, page);
   }
 
   async writingDiary(userId, diaryBookId, page, content) {
