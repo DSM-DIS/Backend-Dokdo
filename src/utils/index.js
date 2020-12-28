@@ -1,9 +1,9 @@
+const checkIntegerArg = require('./checkParam/checkIntegerArg');
+const checkStringArg = require('./checkParam/checkStringArg');
 const getLastPage = require('./getLastPage');
-const isIntegerArg = require('./isIntegerArg');
-const isStringArg = require('./isStringArg');
 
 module.exports = {
   getLastPage,
-  isIntegerArg,
-  isStringArg
+  checkIntegerArg,
+  checkStringArg
 };
