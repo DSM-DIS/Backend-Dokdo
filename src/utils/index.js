@@ -1,9 +1,9 @@
-const checkIntegerArg = require('./checkParam/checkIntegerArg');
-const checkStringArg = require('./checkParam/checkStringArg');
 const getLastPage = require('./getLastPage');
+const httpErrorHandler = require('./httpErrorHandler');
+const { checkDiaryBookId } = require('./checkParam');
 
 module.exports = {
   getLastPage,
-  checkIntegerArg,
-  checkStringArg
+  httpErrorHandler,
+  checkDiaryBookId
 };
