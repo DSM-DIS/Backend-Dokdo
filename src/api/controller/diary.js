@@ -2,7 +2,6 @@ const { Diary } = require('../../repositories');
 const DiaryService = require('../../services/diary');
 const diaryService = new DiaryService();
 const { BadRequest } = require('../../errors');
-const { checkDiaryBookId, checkOwner, checkPage, checkContent } = require('../../utils');
 
 const getDiary = async (req, res, next) => {
   try {
@@ -10,11 +9,7 @@ const getDiary = async (req, res, next) => {
     const diaryBookId = parseInt(req.params.id);
     const page = parseInt(req.params.page);
 
-    // error handler
-    await checkDiaryBookId(userId, diaryBookId);
-    await checkPage(page);
-
-    const data = await diaryService.readingDiary(diaryBookId, page);
+    const data = await diaryService.readingDiary(userId, diaryBookId, page);
     res.send(data);
   } catch (error) {
     next(error);
