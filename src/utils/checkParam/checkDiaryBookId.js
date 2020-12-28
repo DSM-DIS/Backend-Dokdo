@@ -1,8 +1,9 @@
-const { BadRequest } = require('../../errors');
-const { checkCreatedDiaryBook, checkIntegerArg } = require('./');
+const { checkIntegerArg, checkCreatedDiaryBook, checkYourDiaryBook } = require('./');
 
 const checkDiaryBookId = async (diaryBookId) => {
   checkIntegerArg(diaryBookId);
   await checkCreatedDiaryBook(diaryBookId);
-  
+  await checkYourDiaryBook(diaryBookId);
 };
+
+module.exports = checkDiaryBookId;
