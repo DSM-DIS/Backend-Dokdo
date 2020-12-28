@@ -11,7 +11,7 @@ const getDiary = async (req, res, next) => {
     const page = parseInt(req.params.page);
 
     // error handler
-    await checkDiaryBookId(diaryBookId);
+    await checkDiaryBookId(userId, diaryBookId);
     await checkPage(page);
 
     const data = await diaryService.readingDiary(diaryBookId, page);
@@ -21,4 +21,14 @@ const getDiary = async (req, res, next) => {
   }
 };
 
-module.exports = getDiary;
+// const writingDiary = async (req, res, next) => {
+//   try {
+//     const userId = 
+//   } catch (error) {
+//     next(error);
+//   }
+// };
+
+module.exports = {
+  getDiary
+};
