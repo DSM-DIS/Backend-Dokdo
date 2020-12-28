@@ -1,9 +1,10 @@
 const getLastPage = require('./getLastPage');
 const httpErrorHandler = require('./httpErrorHandler');
-const { checkDiaryBookId } = require('./checkParam');
+const { checkDiaryBookId, checkPage } = require('./checkParam');
 
 module.exports = {
   getLastPage,
   httpErrorHandler,
-  checkDiaryBookId
+  checkDiaryBookId,
+  checkPage
 };
