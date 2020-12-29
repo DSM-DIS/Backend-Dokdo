@@ -1,5 +1,5 @@
 const { Diary } = require('../repositories');
-const { checkDiaryBookId, checkOwner, checkPage, checkContent } = require('../../utils');
+const { checkDiaryBookId, checkPage, checkContent } = require('../../utils');
 
 class DiaryService {
   constructor() {
@@ -15,6 +15,9 @@ class DiaryService {
   }
 
   async writingDiary(userId, diaryBookId, page, content) {
+    // content paramter error handler
+    checkContent(content);
+
     await this.diaryModel.writingDiary(diaryBookId, userId, content, page);
   }
 }
