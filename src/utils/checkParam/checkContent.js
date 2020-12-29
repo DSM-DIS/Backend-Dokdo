@@ -1,6 +1,6 @@
 const { stringLen } = require('../../config');
-const { BadRequest } = require('../../errors'); 
-const { checkStringArg } = require('./');
+const { BadRequest } = require('../../errors');
+const checkStringArg = require('./checkStringArg');
 
 const checkContent = (content) => {
   checkStringArg(content);
