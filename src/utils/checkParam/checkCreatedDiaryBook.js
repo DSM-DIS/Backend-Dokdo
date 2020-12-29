@@ -1,9 +1,11 @@
 const axios = require('axios').default;
-const { httpErrorHandler } = require('../');
+const { NotFoundDiaryBook } = require('../../errors');
 
 const checkCreatedDiaryBook = async (diaryBookId) => {
   const res = await axios.get(`/repositories/diary-books/${diaryBookId}`);
-  httpErrorHandler(res.status, res.cause);
+  if (res.status === 404) {
+    throw NotFoundDiaryBook;
+  }
 };
 
 module.exports = checkCreatedDiaryBook;
