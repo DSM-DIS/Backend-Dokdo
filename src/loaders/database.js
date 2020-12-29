@@ -3,8 +3,8 @@ const config = require('../config');
 
 const sequelize = new Sequelize(
   config.mysql.name,
-  config.mysql.username,
-  config.myslq.password,
+  config.mysql.user,
+  config.mysql.password,
   {
     host: config.mysql.host,
     dialect: 'mysql',
