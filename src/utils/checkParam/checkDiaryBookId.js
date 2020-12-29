@@ -1,4 +1,6 @@
-const { checkIntegerArg, checkCreatedDiaryBook, checkYourDiaryBook } = require('./');
+const checkIntegerArg = require('./checkIntegerArg');
+const checkCreatedDiaryBook = require('./checkCreatedDiaryBook');
+const checkYourDiaryBook = require('./checkYourDiaryBook');
 
 const checkDiaryBookId = async (userId, diaryBookId) => {
   checkIntegerArg(diaryBookId);
