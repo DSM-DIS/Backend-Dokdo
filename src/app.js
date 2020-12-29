@@ -6,5 +6,5 @@ const app = express();
 initApp(app);
 
 app.listen(port, () => {
-  console.log(`Server listing at ${config.port}`);
+  console.log(`Server listing at ${port}`);
 });
