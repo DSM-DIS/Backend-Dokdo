@@ -1,7 +1,5 @@
-const { Diary } = require('../../repositories');
 const DiaryService = require('../../services/diary');
 const diaryService = new DiaryService();
-const { BadRequest } = require('../../errors');
 const { getLastPage, checkOwner } = require('../../utils');
 
 const getDiary = async (req, res, next) => {
