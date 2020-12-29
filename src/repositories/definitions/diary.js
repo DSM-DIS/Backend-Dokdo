@@ -1,5 +1,5 @@
 const { DataTypes, Model } = require('sequelize');
-const { stringLen } = require('../../configs');
+const { stringLen } = require('../../config');
 const { sequelize } = require('../../loaders/database');
 
 class Diary extends Model {
