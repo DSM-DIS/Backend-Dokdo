@@ -1,5 +1,5 @@
 const { BadRequest } = require('../../errors');
-const { checkIntegerArg } = require('./');
+const checkIntegerArg = require('./checkIntegerArg');
 const { getLastPage } = require('../');
 
 const checkPage = async (diaryBookId, page) => {
