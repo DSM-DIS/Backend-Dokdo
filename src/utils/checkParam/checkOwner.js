@@ -1,6 +1,12 @@
-const axios = require('axios').default;
+const Axios = require('axios').default;
+const { baseURL } = require('../../config');
 const { ForbiddenDiaryBook } = require('../../errors');
 const checkDiaryBookId = require('./checkDiaryBookId');
+
+const axios = Axios.create({
+  baseURL: baseURL.jeonju,
+  timeout: 1000
+});
 
 const checkOwner = async (userId, diaryBookId) => {
   await checkDiaryBookId(diaryBookId);
