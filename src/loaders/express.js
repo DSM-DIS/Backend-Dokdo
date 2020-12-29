@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const router = require('');
+const router = require('../api/router');
 const { NotFoundApi, InternalServer } = require('../errors');
 
 const loadExpressApp = (app) => {
