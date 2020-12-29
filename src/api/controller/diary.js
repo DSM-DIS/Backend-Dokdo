@@ -35,5 +35,6 @@ const writingDiary = async (req, res, next) => {
 };
 
 module.exports = {
-  getDiary
+  getDiary,
+  writingDiary
 };
