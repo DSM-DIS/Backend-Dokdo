@@ -1,5 +1,5 @@
 const { Diary } = require('../repositories');
-const { checkDiaryBookId, checkPage, checkContent } = require('../../utils');
+const { checkDiaryBookId, checkPage, checkContent } = require('../utils');
 
 class DiaryService {
   constructor() {
