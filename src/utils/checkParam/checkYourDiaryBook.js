@@ -12,7 +12,7 @@ const checkYourDiary = async (userId, diaryBookId) => {
     headers: { userId: userId }
   });
 
-  for (const diaryBook of res.diaryBooks) {
+  for (const diaryBook of res.data.diaryBooks) {
     if (diaryBook.id === diaryBookId) {
       return;
     }
