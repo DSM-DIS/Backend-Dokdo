@@ -8,7 +8,7 @@ const axios = Axios.create({
 });
 
 const checkCreatedDiaryBook = async (diaryBookId) => {
-  const res = await axios.get(`/repositories/diary-books/${diaryBookId}`);
+  const res = await axios.get(`/diary-books/${diaryBookId}`);
   if (res.status === 404) {
     throw NotFoundDiaryBook;
   }
